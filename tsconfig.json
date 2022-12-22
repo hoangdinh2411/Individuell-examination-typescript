@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "outDir": "./dist/js/",
+    "watch": true,
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "include": ["./src"]
+}
