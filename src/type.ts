@@ -16,7 +16,5 @@ interface Elements {
   modal: HTMLElement | null
   back_icon: HTMLElement | null
   modal_overlay: HTMLElement | null
-  detailContainer: HTMLElement | null
-  book_jacket: HTMLElement | null
 }
 export { Book, Elements }

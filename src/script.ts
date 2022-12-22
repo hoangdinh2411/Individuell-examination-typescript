@@ -7,8 +7,6 @@ const elements: Elements = {
   modal: document.querySelector('.modal'),
   back_icon: document.querySelector('.back-icon'),
   modal_overlay: document.querySelector('.modal__overlay'),
-  book_jacket: document.querySelector('.jacket'),
-  detailContainer: document.querySelector('.detail'),
 }
 
 async function fetchingBooks() {
@@ -24,8 +22,6 @@ async function fetchingBooks() {
 }
 function closeModal() {
   elements.modal?.classList.remove('active')
-  elements.detailContainer!.innerHTML = ''
-  elements.book_jacket!.innerHTML = ''
 }
 function openModal() {
   elements.modal?.classList.add('active')
@@ -43,13 +39,16 @@ function setCloseModalEventForElements() {
 }
 
 function showBookJacket(book: Book) {
+  const book_jacket: HTMLElement | null = document.querySelector('.jacket')
+  book_jacket!.innerHTML = ''
   const book_wrapper: HTMLElement | null = displayBook(book)
-  if (book_wrapper) {
-    elements.book_jacket?.appendChild(book_wrapper)
+  if (book_jacket && book_wrapper) {
+    book_jacket!.appendChild(book_wrapper)
   }
 }
 
 function showOtherInformation(book: Book) {
+  const detailContainer: HTMLElement | null = document.querySelector('.detail')
   const detail: string = `
               <strong class="title title--detail">${book.title}</strong>
               <p class="author author--detail">${book.author}</p>
@@ -61,8 +60,8 @@ function showOtherInformation(book: Book) {
                 <p>Publisher: <span>${book.publisher}</span></p>
               </div>
               <button type="button" class="btn">Oh, I want to read it!</button>`
-  if (elements.detailContainer) {
-    elements.detailContainer!.innerHTML = detail
+  if (detailContainer) {
+    detailContainer!.innerHTML = detail
   }
 }
 function displayBookDetail(book: Book) {
