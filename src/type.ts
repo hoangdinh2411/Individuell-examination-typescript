@@ -10,11 +10,7 @@ interface Book {
   year: number
 }
 
-interface Elements {
-  API_URL: string
-  booksContainer: HTMLElement | null
-  modal: HTMLElement | null
-  back_icon: HTMLElement | null
-  modal_overlay: HTMLElement | null
-}
-export { Book, Elements }
+type Entry<T> = {
+  [K in keyof T]: [K, T[K]]
+}[keyof T]
+export { Book, Entry }
